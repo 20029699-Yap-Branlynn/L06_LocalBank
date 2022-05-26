@@ -20,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
 
     String wordClicked = "";
 
+    boolean toggleFave = true;
+    boolean toggleFave2 = true;
+    boolean toggleFave3 = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +67,13 @@ public class MainActivity extends AppCompatActivity {
                 Intent intentCall = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: 18001111111"));
                 startActivity(intentCall);;
             } else if (item.getItemId() == 2){
-                tvDBS.setTextColor(Color.parseColor("#FF0000"));
+                if (toggleFave == true){
+                    tvDBS.setTextColor(Color.RED);
+                    toggleFave = false;
+                } else{
+                    tvDBS.setTextColor(Color.BLACK);
+                    toggleFave = true;
+                }
             }
         }
         if (wordClicked.equalsIgnoreCase("ocbc")) {
@@ -76,7 +85,13 @@ public class MainActivity extends AppCompatActivity {
                 Intent intentCall = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: 18003633333"));
                 startActivity(intentCall);;
             }else if (item.getItemId() == 2){
-                tvOCBC.setTextColor(Color.parseColor("#FF0000"));
+                if (toggleFave2 == true){
+                    tvOCBC.setTextColor(Color.RED);
+                    toggleFave2 = false;
+                } else{
+                    tvOCBC.setTextColor(Color.BLACK);
+                    toggleFave2 = true;
+                }
             }
         }
         if (wordClicked.equalsIgnoreCase("uob")) {
@@ -88,7 +103,13 @@ public class MainActivity extends AppCompatActivity {
                 Intent intentCall = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: 18002222121"));
                 startActivity(intentCall);;
             }else if (item.getItemId() == 2){
-                tvUOB.setTextColor(Color.parseColor("#FF0000"));
+                if (toggleFave3 == true){
+                    tvUOB.setTextColor(Color.RED);
+                    toggleFave3 = false;
+                } else{
+                    tvUOB.setTextColor(Color.BLACK);
+                    toggleFave3 = true;
+                }
             }
         }
         return super.onContextItemSelected(item);

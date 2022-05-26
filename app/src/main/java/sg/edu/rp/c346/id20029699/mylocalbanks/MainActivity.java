@@ -3,6 +3,7 @@ package sg.edu.rp.c346.id20029699.mylocalbanks;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         menu.add(0, 0, 0, "Website");
         menu.add(0, 1, 1, "Contact the Bank");
+        menu.add(0, 2, 2, "Toggle Favourite");
 
         if (v == tvDBS) {
             wordClicked = "dbs";
@@ -61,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
             } else if (item.getItemId() == 1) {
                 Intent intentCall = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: 18001111111"));
                 startActivity(intentCall);;
+            } else if (item.getItemId() == 2){
+                tvDBS.setTextColor(Color.parseColor("#FF0000"));
             }
         }
         if (wordClicked.equalsIgnoreCase("ocbc")) {
@@ -71,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
             } else if (item.getItemId() == 1) {
                 Intent intentCall = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: 18003633333"));
                 startActivity(intentCall);;
+            }else if (item.getItemId() == 2){
+                tvOCBC.setTextColor(Color.parseColor("#FF0000"));
             }
         }
         if (wordClicked.equalsIgnoreCase("uob")) {
@@ -81,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
             } else if (item.getItemId() == 1) {
                 Intent intentCall = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: 18002222121"));
                 startActivity(intentCall);;
+            }else if (item.getItemId() == 2){
+                tvUOB.setTextColor(Color.parseColor("#FF0000"));
             }
         }
         return super.onContextItemSelected(item);
